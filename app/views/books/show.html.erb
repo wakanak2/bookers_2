@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+	     <% if flash[:notice] %>
+           <div class="flash">
+           <%= flash[:notice] %>
+           </div>
+         <% end %>
+
+      <div class="col-xs-3">
+
+            <%= render 'users/userlist' ,user: @user %>
+            <%= render 'books/new', book: @book %>
+ 
+      </div>
+
+        <div class="col-xs-9">
+         <h1>Book detail</h1>
+
+
+      <table class="table table-striped">
+	   <thead>
+		<th></th>
+		<th>title</th>
+		<th>Opinion</th>
+	   </thead>
+
+	  <tbody>
+		<td><%= link_to user_path (@book.user)do %><%= attachment_image_tag @book.user, :profile_image, size:"30x30", format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %><%= @book.user.name %><% end %></td>
+		<td><%= @book.title %></td>
+		<td><%= @book.body %></td>
+		<% if @book.user == current_user %>
+		<td><%= link_to "Edit",edit_book_path %></td>
+        <td><%= link_to "Destroy",book_path(@book), method: :delete %></td>
+        <% end %>
+		
+
+	  </tbody>
+      </table>
+    </div>
+</div>

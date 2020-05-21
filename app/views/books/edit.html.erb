@@ -1,0 +1,49 @@
+
+<div class="container">
+	<div class="row">
+       <h1 class="col-lg-8 align-self-center">Editing Book</h1>
+    </div>
+
+<%= form_for (@book) do |f| %>
+<div class="row">
+	<span>Title</span>
+</div>
+<div class="row">
+    <%= f.text_field :title, class:"col-lg-8" %>
+</div>
+<div class="row">
+<span>Opinion</span>
+</div>
+<div class="row">
+<%=f.text_area :body,class:"col-lg-8" %>
+</div>
+
+<div class="row">
+	
+    <%=f.submit('Update Book',class:'btn btn-primary col-lg-8 p-5') %>
+    
+</div>
+<% end %>
+
+<div class="btn-group" role="group">
+
+<%= link_to "Show",book_path(@book),class:"btn btn-default "%>
+<%= link_to "Back",books_path,class:"btn btn-default "%>
+
+</div>
+
+<%= form_for(@book) do |f| %>
+ <% if @book.errors.any? %>
+  <p><%= @book.errors.count %>件のerror</p>
+   <ul>
+    <% @book.errors.full_messages.each do |message| %>
+     <il><%= message %></il>
+    <% end %>
+   </ul>
+ <% end %>
+
+<% end %>
+
+
+</div>
+

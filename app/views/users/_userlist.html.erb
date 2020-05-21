@@ -1,0 +1,36 @@
+
+   
+
+      <h3>User info</h3>
+
+
+      <%= attachment_image_tag user, :profile_image, size:"30x30", format: 'jpeg', class: "img-circle pull-left profile-img col-md-3", fallback: "no_image.jpg" %></td>
+
+
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th><%= user.name%></th>
+          </tr>
+          <tr>
+            <th>Introduction</th>
+            <th><%= user.introduction %></th>
+          </tr>
+
+          <tr> 
+            <% if user == current_user %>
+            <th><%=link_to "edit info",edit_user_path(user) %></th>
+            <% else %>
+            <th><%=link_to "edit info",user_path(current_user) %></th>
+            <% end %>
+
+              
+            </tr>
+        </tbody>
+      </table>
+
+
+
+
