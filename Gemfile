@@ -58,7 +58,6 @@ group :test do
   gem 'faker'
 
   # Easy installation and use of chromedriver to run system tests with Chrome
-  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -71,3 +70,8 @@ gem"refile-mini_magick"
 
 gem 'bootstrap-sass','~> 3.3.6'
 gem 'jquery-rails'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
